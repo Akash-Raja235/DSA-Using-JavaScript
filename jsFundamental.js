@@ -1,4 +1,121 @@
 
+/*  
+
+JS Fundamental Target
+========================================================
+
+1. All Variables and uses
+2. Data Types
+3. All operatoers and there uses
+4. conditional Statements
+5. Loops
+6. All creation and uses
+7. Array
+8. String
+9. Object
+10. Set
+11. Map
+*/
+
+
+// ************************ SET Start ************************
+
+/* 
+
+10. Set
+==========================================
+set objects are unique collection of values
+
+add()   ==> inserts a unique element into set
+size   ==>find size of set 
+clear()   ==> removes all elements from this set. 
+delete()  ==> removes a specified value from this set
+has()    ==> return true or false to check value is present in set or not
+entries() ==> return new array of set contaning [value, value]
+forEach() ==> iterate the elements one bye one
+union()  ==> return new set based on union {add both set together and return new set but not add twice dublicate elements}
+*/
+
+const set = new Set()
+set.add(12)
+set.add(45)
+set.add(45) // only add unique value  
+// console.log(set)
+// console.log(set.size)
+
+const set1 = new Set()
+
+set1.add("ram").add("Sita").add("Lakshman").add("Hanuman") // its aloo allow chaining like this
+
+// console.log(set1)
+
+const set2 = new Set()
+set2.add(45).add("foo")
+// console.log(set2.size) op=>2
+set2.clear()
+// console.log(set2.size) op=>0
+
+
+const set3 = new Set()
+
+set3.add("rama").add("krishna").add("Radhe")
+// console.log(set3)
+set3.delete("Radhe")
+// console.log(set3)
+
+
+
+const set4 = new Set()
+
+set4.add("Krishna")
+set4.add("mor pankh")
+set4.add("basuri")
+set4.add("Gaiya")
+// console.log(set4)
+// console.log(set4.size)
+// console.log(set4.has('basuri')) // true
+// console.log(set4.has('pi'))     // false
+
+// console.log(typeof set4)
+let arr = set4.entries()
+
+for(let key of arr){
+    // console.log(key)
+}
+
+set4.forEach((vale)=>{
+    // console.log(vale)
+})
+
+let selter = set4.keys()
+// console.log(selter.next().value)
+
+
+
+const even  = new Set([2,4,6,8])
+const sqare = new Set([1,4,9])
+
+let uni = even.union(sqare)
+// console.log(uni) // [2,4,6,8,1,9]
+
+
+let arrys = [4,4,4,5,1,1,6,6]
+
+
+   let newArr = [... new Set(arrys)]
+let removeDub = new Set(arrys)
+// console.log(removeDub)
+// console.log(newArr)
+
+
+
+
+
+
+
+//************************  SET End ***********************************
+
+
 // let's start coding journey
 
 // sum of 1 to 5 naturak number 
@@ -218,22 +335,107 @@
 // console.log(reverseArr([2,4,5,10,78,-90]))
 
 
-function pattern_problem (n){
-    //   let n= 4
-    for(let row =1; row <= 2*n; row++){
+// function pattern_problem (n){
+//     //   let n= 4
+//     for(let row =1; row <= 2*n; row++){
         
-        // for every row how many colms are there
-        let totalNoofColm  = row >n ? 2*n -row :row;
-        for(let colm=1; colm <= totalNoofColm; colm++){
+//         // for every row how many colms are there
+//         let totalNoofColm  = row >n ? 2*n -row :row;
+//         for(let colm=1; colm <= totalNoofColm; colm++){
          
-          document.write("*")
+//           document.write("*")
+//         }
+//         // for new line 
+//         document.write("<br>")
+//     }
+// }
+
+// pattern_problem(4)
+
+
+// ***********************Qn. Remove Dublicate elements from arrys*************
+
+  let array = [5,6,7,7,8,8,9,8]
+  const removeDeblicateElements = (arr)=>{
+ 
+    let uniqueArr = []
+     let counter = 0
+
+      
+
+     arr.forEach((el)=>{
+        if(!apnaIncude(uniqueArr,el)){
+            uniqueArr[counter]=el
+            counter++
+
         }
-        // for new line 
-        document.write("<br>")
+       
+     })
+//   for(let i=0; i < arr.length; i++){
+    
+//     if(!uniqueArr.includes(arr[i])){
+//         uniqueArr[counter] = arr[i]
+//         counter++
+//     }
+//   }
+
+    return uniqueArr
+
+
+  }
+
+
+  const apnaIncude = (arr, element)=>{
+ 
+    console.log('ele',element)
+     let temp= false
+    for(let i=0; i< arr.length; i++){
+
+    if(arr[i] == element ){
+      
+        temp =true
+      
     }
+    }
+
+    if(temp) return true
+    return false 
+   
+
+  }
+
+  // console.log(removeDeblicateElements([5,6,7,7,8,8,9,8]))
+
+
+  // ********************** print this right tringle **********************
+
+  //                    *
+//                 *   *
+//            *   *   *
+//        *   *   *   *
+//   *   *   *   *   *
+
+
+// i =j =1
+// j=2
+
+function printmtTringle (row){
+  let patttern = ""
+  for(let i = 0; i< row ; i++){
+  
+    for(let j =0; j <=i; j++){
+      
+      patttern += "*"
+    }
+  }
+  return patttern
 }
 
-pattern_problem(4)
+console.log(printmtTringle(5))
+
+
+
+
 
 
 
